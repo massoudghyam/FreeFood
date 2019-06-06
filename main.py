@@ -18,13 +18,13 @@ class MainPage(webapp2.RequestHandler):
 
 class ReportPage(webapp2.RequestHandler):
     def get(self): #for a get request
-        self.response.headers['Content-Type'] = 'text/plain'
-        self.response.write('Hello yourself, bub!') #the response
+        report_template = jinja_current_dir.get_template("templates/reportFood.html")
+        self.response.write(report_template.render())
 # the app configuration section
 class FindPage(webapp2.RequestHandler):
     def get(self): #for a get request
-        self.response.headers['Content-Type'] = 'text/plain'
-        self.response.write('Hello yourself, bub!') #the response
+        find_template = jinja_current_dir.get_template("templates/findfood.html")
+        self.response.write(find_template.render())
 # the app configuration section
 app = webapp2.WSGIApplication([
     ('/', MainPage), #this maps the root url to the Main Page Handler
